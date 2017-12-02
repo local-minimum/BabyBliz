@@ -15,6 +15,8 @@ public class BabyController : MonoBehaviour {
 
     Rigidbody2D rb;
 
+    public bool dontMove;
+
     private void Start()
     {
         attachmentJoint = GetComponent<SpringJoint2D>();
@@ -54,10 +56,13 @@ public class BabyController : MonoBehaviour {
     [SerializeField]
     float crawlSpeed;
 
+    [SerializeField]
+    CapsuleCollider2D capsulCollider;
+
     private void Update()
     {
 
-        if (!attachmentTransform)
+        if (attachmentTransform == null && !dontMove)
         {
             if (nextAction < Time.timeSinceLevelLoad)
             {
@@ -66,8 +71,17 @@ public class BabyController : MonoBehaviour {
             } else
             {
                 rb.AddForce(new Vector2(xDirection * crawlSpeed, 0));
-
+                if (Random.value < 0.1f)
+                capsulCollider.size = new Vector2(Random.Range(0.7f, 0.9f), Random.Range(0.8f, 1.0f));
             }
         }   
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            dontMove = false;
+        }
     }
 }

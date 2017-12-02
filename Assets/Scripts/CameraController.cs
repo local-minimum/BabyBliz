@@ -12,8 +12,19 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     float attack = 0.9f;
 
+    Camera myCam;
+
+    public Camera Cam
+    {
+        get
+        {
+            return myCam;
+        }
+    }
+
     private void Start()
     {
+        myCam = GetComponent<Camera>();
         //StartCoroutine(_updateTarget());
     }
 
@@ -58,4 +69,29 @@ public class CameraController : MonoBehaviour {
 
         transform.position = player.position + new Vector3(0, 1f, -10f);
 	}
+
+    CameraZone camZone;
+
+    public void SetZoomArea(CameraZone zone)
+    {
+        if (camZone != zone)
+        {
+            camZone = zone;
+            StartCoroutine(_animateSize(zone.zoomSize, zone.zoomDuration, zone));
+        }
+    }
+
+    IEnumerator<WaitForSeconds> _animateSize(float size, float duration, CameraZone zone)
+    {
+        float startT = Time.timeSinceLevelLoad;
+        float progress = 0;
+        float startSize = myCam.orthographicSize;
+        while (progress < 1f && zone == camZone)
+        {
+            progress = Mathf.Clamp01( (Time.timeSinceLevelLoad - startT) / duration );
+            myCam.orthographicSize = Mathf.Lerp(startSize, size, progress);
+            yield return new WaitForSeconds(0.0015f);
+        }
+        myCam.orthographicSize = size;
+    }
 }
