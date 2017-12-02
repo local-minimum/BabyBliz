@@ -13,6 +13,9 @@ public class PlayerStatus : MonoBehaviour {
     [SerializeField]
     float _energy = 40;
 
+    [SerializeField]
+    float maxEnergy = 80;
+
     public float Energy
     {
         get
@@ -49,5 +52,12 @@ public class PlayerStatus : MonoBehaviour {
     {
         babies.Add(baby);
         baby.SetAttachment(gameObject, attachmentArea);
+    }
+
+    public void PickupEnergy(EnergyItem item)
+    {
+        _energy += item.energyContent;
+        _energy = Mathf.Min(_energy, maxEnergy);
+        Destroy(item.gameObject);
     }
 }

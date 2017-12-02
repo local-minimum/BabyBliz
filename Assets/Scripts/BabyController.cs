@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BabyController : MonoBehaviour {
-
+    
     Transform attachmentTransform;
     SpringJoint2D attachmentJoint;
 
@@ -12,6 +12,8 @@ public class BabyController : MonoBehaviour {
 
     [SerializeField]
     float maxDistance = 0.3f;
+
+    Vector2 crawlDirection;
 
     private void Start()
     {
@@ -37,5 +39,13 @@ public class BabyController : MonoBehaviour {
                 Mathf.Lerp(attachmentArea.min.x, attachmentArea.max.x, Random.value),
                 Mathf.Lerp(attachmentArea.min.y, attachmentArea.max.y, Random.value)
             );
+    }
+
+    private void Update()
+    {
+        if (!attachmentJoint)
+        {
+            
+        }   
     }
 }
