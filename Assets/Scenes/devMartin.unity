@@ -144,7 +144,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.5404221
+  m_Distance: 0.8860022
   m_MaxDistanceOnly: 1
 --- !u!1 &187200469
 GameObject:
@@ -270,6 +270,21 @@ Prefab:
       propertyPath: bag
       value: 
       objectReference: {fileID: 29199273}
+    - target: {fileID: 114894498698319930, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: groundingTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114894498698319930, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: maxVelocities.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114894498698319930, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: maxVelocities.y
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31acbebd02b06cf4782ae06432ae9f68, type: 2}
   m_IsPrefabParent: 0
@@ -300,7 +315,7 @@ GameObject:
   - component: {fileID: 1068848527}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,7 +616,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4958696113851274, guid: 2d2d502bbf0eb714daba68a36e252666, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.35
+      value: -6.68
       objectReference: {fileID: 0}
     - target: {fileID: 4958696113851274, guid: 2d2d502bbf0eb714daba68a36e252666, type: 2}
       propertyPath: m_LocalPosition.y
@@ -657,7 +672,7 @@ GameObject:
   - component: {fileID: 1765439263}
   m_Layer: 0
   m_Name: Ground (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,8 +684,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765439261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03025, y: 0.07975, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0229, y: 0.066, z: 0}
+  m_LocalScale: {x: 1, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 1068848529}
   m_RootOrder: 0
