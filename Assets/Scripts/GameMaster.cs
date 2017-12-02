@@ -15,12 +15,13 @@ public class GameMaster : MonoBehaviour {
     }
 
     public GameObject player;
+    public Transform levelStart;
 
     public float distanceWalked
     {
         get
         {
-            return Random.value;
+            return Mathf.Abs(player.transform.position.x - levelStart.transform.position.x);
         }
     }
 
