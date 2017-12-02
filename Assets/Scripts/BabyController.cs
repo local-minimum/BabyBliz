@@ -23,7 +23,6 @@ public class BabyController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
         if (collision.tag == "Player")
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
