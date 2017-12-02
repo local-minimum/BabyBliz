@@ -16,6 +16,7 @@ public class BabyController : MonoBehaviour {
     Rigidbody2D rb;
 
     public bool dontMove;
+    public bool floating;
 
     private void Start()
     {
@@ -28,6 +29,11 @@ public class BabyController : MonoBehaviour {
         if (collision.tag == "Player")
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
+        } else if (collision.tag == "Water")
+        {
+            rb.gravityScale = 0f;
+            floating = true;
+            dontMove = true;
         }
     }
 
@@ -41,6 +47,9 @@ public class BabyController : MonoBehaviour {
                 Mathf.Lerp(attachmentArea.min.x, attachmentArea.max.x, Random.value),
                 Mathf.Lerp(attachmentArea.min.y, attachmentArea.max.y, Random.value)
             );
+
+        floating = false;
+        rb.gravityScale = 1f;
     }
 
     Vector2 aim;
@@ -62,19 +71,24 @@ public class BabyController : MonoBehaviour {
     private void Update()
     {
 
-        if (attachmentTransform == null && !dontMove)
+        if (attachmentTransform == null)
         {
-            if (nextAction < Time.timeSinceLevelLoad)
+
+            if (dontMove != true)
             {
-                nextAction = Random.Range(minNextAction, maxNextaction) + Time.timeSinceLevelLoad;
-                xDirection = Random.Range(-1f, 1f);
-            } else
-            {
-                rb.AddForce(new Vector2(xDirection * crawlSpeed, 0));
-                if (Random.value < 0.1f)
-                capsulCollider.size = new Vector2(Random.Range(0.7f, 0.9f), Random.Range(0.8f, 1.0f));
+                if (nextAction < Time.timeSinceLevelLoad)
+                {
+                    nextAction = Random.Range(minNextAction, maxNextaction) + Time.timeSinceLevelLoad;
+                    xDirection = Random.Range(-1f, 1f);
+                }
+                else
+                {
+                    rb.AddForce(new Vector2(xDirection * crawlSpeed, 0));
+                    if (Random.value < 0.1f)
+                        capsulCollider.size = new Vector2(Random.Range(0.7f, 0.9f), Random.Range(0.8f, 1.0f));
+                }
             }
-        }   
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

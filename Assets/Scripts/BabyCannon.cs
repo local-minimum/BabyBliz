@@ -33,7 +33,7 @@ public class BabyCannon : MonoBehaviour {
     {
         BabyController baby = Instantiate(babyPrefab);
         baby.transform.position = transform.position;
-        baby.dontMove = false;
+        baby.dontMove = true;
         Vector2 ejectForce = new Vector2(Random.Range(-1f, 1f) * lateralisation, Random.Range(upScaleMin, upScaleMax)).normalized;
         Rigidbody2D rb = baby.GetComponent<Rigidbody2D>();
         rb.AddTorque(Random.Range(-90, 90));

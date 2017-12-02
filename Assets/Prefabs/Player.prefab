@@ -142,6 +142,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924405b510ed13142a55f8c11ba3c463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachmentArea:
+    serializedVersion: 2
+    x: 0
+    y: 0.005
+    width: 0.015
+    height: 0.01
+  energyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 14.83799
+      value: 0.71085227
+      inSlope: 0.03695488
+      outSlope: 0.03695488
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 40
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 54.884426
+      value: 1.5014457
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  jumpEnergyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 40.361637
+      value: 0.89826
+      inSlope: 0.0054616206
+      outSlope: 0.0054616206
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 80
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  _energy: 40
+  maxEnergy: 80
+  energyLossRate: 0.1
 --- !u!114 &114894498698319930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,11 +216,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acdf0454856b85448a4dc7c0e12c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40000
+  playerStatus: {fileID: 114041612477583240}
+  jumpForce: 50000
   walkForce: 1000
   maxVelocities: {x: 5, y: 30}
   jumpingWalkForceFactor: 0.5
+  swimFactor: 0.8
+  maxWaterSpeed: 1
   groundingTime: 0.1
+  swimGravityScale: 0.1
 --- !u!212 &212564753742612272
 SpriteRenderer:
   m_ObjectHideFlags: 1

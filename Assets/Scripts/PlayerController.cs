@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb;
     Animation anim;
-
+    bool isAlive = true;
     float lastGrounded;
 
 	// Use this for initialization
@@ -26,29 +26,82 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        bool grounded = Grounded;
-        float energy = playerStatus.Energy;
-
-	    if (Input.GetButtonDown("Jump") && Grounded)
+        if (!isAlive)
         {
-            rb.AddForce(Vector2.up * jumpForce * playerStatus.JumpEnergy);
-            
+            return;
         }
+
+        bool grounded = Grounded;        
         float horizontal = Input.GetAxis("Horizontal");
 
-        if (Mathf.Abs(horizontal) > 0.01)
+        if (Grounded)
         {
-            rb.AddForce(Vector2.right * walkForce * energy * horizontal * (grounded ? 1f : jumpingWalkForceFactor));
-
-        }
-
-        
-        if (grounded)
+            Walk(horizontal);
+        } else if (Submerged)
         {
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, 0));
+            Swim(horizontal);
+        } else
+        {
+
         }
 
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxVelocities.x, maxVelocities.x), Mathf.Clamp(rb.velocity.y, -maxVelocities.y, maxVelocities.y));        
+    }
+
+    [SerializeField, Range(0, 1)]
+    float swimFactor = 0.3f;
+
+    void JumpingControl(float horizontal)
+    {
+        if (Mathf.Abs(horizontal) > 0.01f)
+        {
+            rb.AddForce(Vector2.right * walkForce * playerStatus.Energy * horizontal * jumpingWalkForceFactor);
+        }
+    }
+
+    [SerializeField]
+    float maxWaterSpeed = 4f;
+
+    [SerializeField]
+    float babyBuoyancy = 0.03f;
+
+    void Swim(float horizontal)
+    {
+        float babies = playerStatus.BabyCount;
+        rb.gravityScale = swimGravityScale - babyBuoyancy * babies;
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(Vector2.up * jumpForce * swimFactor * playerStatus.JumpEnergy);
+
+        }
+
+        if (Mathf.Abs(horizontal) > 0.01)
+        {
+            rb.AddForce(Vector2.right * walkForce * playerStatus.Energy * horizontal);
+
+        }
+
+        float vMagnitude = Mathf.Abs(rb.velocity.x) + Mathf.Min(0, rb.velocity.y) * -1f;
+        if (vMagnitude > maxWaterSpeed)
+        {
+            rb.velocity = rb.velocity / vMagnitude * maxWaterSpeed;
+        }
+    }
+
+    void Walk(float horizontal)
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(Vector2.up * jumpForce * playerStatus.JumpEnergy);
+
+        }
+
+        if (Mathf.Abs(horizontal) > 0.01f)
+        {
+            rb.AddForce(Vector2.right * walkForce * playerStatus.Energy * horizontal);
+        }
+
+        rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, 0));
     }
 
     public float groundingTime = 0.1f;
@@ -61,13 +114,28 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public bool Submerged
+    {
+        get
+        {
+            return waters.Count > 0;
+        }
+    }
+
     HashSet<Transform> grounders = new HashSet<Transform>();
+    HashSet<Transform> waters = new HashSet<Transform>();
+
+    [SerializeField, Range(0, 1)]
+    float swimGravityScale = 0.1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             grounders.Add(collision.transform);
+        } else if (collision.gameObject.tag == "Water")
+        {
+            waters.Add(collision.transform);
         }
     }
 
@@ -78,5 +146,18 @@ public class PlayerController : MonoBehaviour {
             lastGrounded = Time.timeSinceLevelLoad;
             grounders.Remove(collision.transform);
         }
+        else if (collision.gameObject.tag == "Water")
+        {
+            waters.Remove(collision.transform);
+            if (waters.Count == 0)
+            {
+                rb.gravityScale = 1f;
+            }
+        }
+    }
+
+    public void Kill(KilledBy reason)
+    {
+        isAlive = false;
     }
 }

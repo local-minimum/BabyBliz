@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum KilledBy { Drowning };
+
 public class PlayerStatus : MonoBehaviour {
 
     [SerializeField]
@@ -70,5 +72,10 @@ public class PlayerStatus : MonoBehaviour {
         _energy += item.energyContent;
         _energy = Mathf.Min(_energy, maxEnergy);
         Destroy(item.gameObject);
+    }
+
+    public void Kill(KilledBy reason)
+    {
+        Debug.Log(reason);
     }
 }
