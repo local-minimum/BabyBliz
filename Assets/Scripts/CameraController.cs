@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour {
 
     private void Start()
     {
-        StartCoroutine(_updateTarget());
+        //StartCoroutine(_updateTarget());
     }
 
     Vector3 playerTrackPosition;
@@ -36,6 +36,14 @@ public class CameraController : MonoBehaviour {
         }
     }
 
+    public float DeltaXFromOrigin
+    {
+        get
+        {
+            return transform.parent.position.x - transform.position.x;
+        }
+    }
+
     Vector2 PlayerOnScren()
     {
         Vector2 playerPos = Camera.main.WorldToScreenPoint(player.transform.position);
@@ -43,6 +51,8 @@ public class CameraController : MonoBehaviour {
         Vector2 direction = relPos - new Vector2(0.5f, 0.5f);
         return relPos;
     }
+
+
 
     void Update () {
 
