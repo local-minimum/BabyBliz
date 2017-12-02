@@ -33,7 +33,7 @@ public class PlayerStatus : MonoBehaviour {
     float energyLossRate = .1f;
 
 	void Update () {
-        _energy -= Time.deltaTime * BabyCount * energyLossRate;
+        _energy -= Time.deltaTime * (BabyCount + 1) * energyLossRate;
         _energy = Mathf.Max(_energy, 0);
 	}
 
