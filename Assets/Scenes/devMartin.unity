@@ -352,6 +352,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4458487756743786, guid: 31acbebd02b06cf4782ae06432ae9f68, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.83
@@ -399,6 +404,76 @@ Prefab:
       propertyPath: attachmentArea.y
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: _energy
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[1].time
+      value: 14.83799
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[1].value
+      value: 0.71085227
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[2].time
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[2].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[2].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[1].inSlope
+      value: 0.03695488
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[1].outSlope
+      value: 0.03695488
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[3].time
+      value: 54.884426
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: energyCurve.m_Curve.Array.data[3].value
+      value: 1.5014457
+      objectReference: {fileID: 0}
+    - target: {fileID: 114894498698319930, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: playerStatus
+      value: 
+      objectReference: {fileID: 470776927}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31acbebd02b06cf4782ae06432ae9f68, type: 2}
   m_IsPrefabParent: 0
@@ -417,6 +492,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4458487756743786, guid: 31acbebd02b06cf4782ae06432ae9f68,
     type: 2}
   m_PrefabInternal: {fileID: 470776919}
+--- !u!114 &470776927 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+    type: 2}
+  m_PrefabInternal: {fileID: 470776919}
+  m_Script: {fileID: 11500000, guid: 924405b510ed13142a55f8c11ba3c463, type: 3}
 --- !u!1001 &487791277
 Prefab:
   m_ObjectHideFlags: 0

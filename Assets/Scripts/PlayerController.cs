@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-   
+    public PlayerStatus playerStatus;
+
     public float jumpForce;
     public float walkForce;
 
@@ -26,17 +27,18 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         bool grounded = Grounded;
+        float energy = playerStatus.Energy;
 
 	    if (Input.GetButtonDown("Jump") && Grounded)
         {
-            rb.AddForce(Vector2.up * jumpForce);
+            rb.AddForce(Vector2.up * jumpForce * energy);
             
         }
         float horizontal = Input.GetAxis("Horizontal");
 
         if (Mathf.Abs(horizontal) > 0.01)
         {
-            rb.AddForce(Vector2.right * walkForce * horizontal * (grounded ? 1f : jumpingWalkForceFactor));
+            rb.AddForce(Vector2.right * walkForce * energy * horizontal * (grounded ? 1f : jumpingWalkForceFactor));
 
         }
 
