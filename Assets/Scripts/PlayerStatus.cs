@@ -21,4 +21,10 @@ public class PlayerStatus : MonoBehaviour {
             return 0;
         }
     }
+
+    public void PickupBaby(BabyController baby)
+    {
+        Debug.Log("Hello");
+        baby.SetAttachment(gameObject);
+    }
 }
