@@ -357,6 +357,11 @@ Prefab:
       propertyPath: energyCurve.m_Curve.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4458487756743786, guid: 31acbebd02b06cf4782ae06432ae9f68, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.83
@@ -474,6 +479,46 @@ Prefab:
       propertyPath: playerStatus
       value: 
       objectReference: {fileID: 470776927}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.data[1].time
+      value: 40.361637
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.data[1].value
+      value: 0.89826
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.data[1].inSlope
+      value: 0.0054616206
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.data[1].outSlope
+      value: 0.0054616206
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.data[2].time
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041612477583240, guid: 31acbebd02b06cf4782ae06432ae9f68,
+        type: 2}
+      propertyPath: jumpEnergyCurve.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31acbebd02b06cf4782ae06432ae9f68, type: 2}
   m_IsPrefabParent: 0

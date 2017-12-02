@@ -11,6 +11,9 @@ public class PlayerStatus : MonoBehaviour {
     AnimationCurve energyCurve;
 
     [SerializeField]
+    AnimationCurve jumpEnergyCurve;
+
+    [SerializeField]
     float _energy = 40;
 
     [SerializeField]
@@ -21,6 +24,14 @@ public class PlayerStatus : MonoBehaviour {
         get
         {
             return energyCurve.Evaluate(_energy);
+        }
+    }
+
+    public float JumpEnergy
+    {
+        get
+        {
+            return jumpEnergyCurve.Evaluate(_energy);
         }
     }
 

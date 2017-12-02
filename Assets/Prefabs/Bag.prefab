@@ -118,6 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: 0.05
   maxDistance: 0.3
+  minNextAction: 0
+  maxNextaction: 10
+  crawlSpeed: 30
 --- !u!212 &212145856578586846
 SpriteRenderer:
   m_ObjectHideFlags: 1

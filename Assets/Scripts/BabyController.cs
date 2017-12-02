@@ -13,11 +13,12 @@ public class BabyController : MonoBehaviour {
     [SerializeField]
     float maxDistance = 0.3f;
 
-    Vector2 crawlDirection;
+    Rigidbody2D rb;
 
     private void Start()
     {
         attachmentJoint = GetComponent<SpringJoint2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,11 +42,33 @@ public class BabyController : MonoBehaviour {
             );
     }
 
+    Vector2 aim;
+    [SerializeField]
+    float minNextAction = 5f;
+
+    [SerializeField]
+    float maxNextaction = 20f;
+
+    float nextAction;
+    float xDirection = 0;
+
+    [SerializeField]
+    float crawlSpeed;
+
     private void Update()
     {
-        if (!attachmentJoint)
+
+        if (!attachmentTransform)
         {
-            
+            if (nextAction < Time.timeSinceLevelLoad)
+            {
+                nextAction = Random.Range(minNextAction, maxNextaction) + Time.timeSinceLevelLoad;
+                xDirection = Random.Range(-1f, 1f);
+            } else
+            {
+                rb.AddForce(new Vector2(xDirection * crawlSpeed, 0));
+
+            }
         }   
     }
 }

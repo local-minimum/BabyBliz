@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 
 	    if (Input.GetButtonDown("Jump") && Grounded)
         {
-            rb.AddForce(Vector2.up * jumpForce * energy);
+            rb.AddForce(Vector2.up * jumpForce * playerStatus.JumpEnergy);
             
         }
         float horizontal = Input.GetAxis("Horizontal");
