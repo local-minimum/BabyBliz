@@ -65,6 +65,7 @@ public class PlayerStatus : MonoBehaviour {
     {
         babies.Add(baby);
         baby.SetAttachment(gameObject, attachmentArea);
+        baby.gameObject.layer = LayerMask.NameToLayer("Carried");
     }
 
     public void PickupEnergy(EnergyItem item)

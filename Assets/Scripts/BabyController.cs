@@ -26,14 +26,23 @@ public class BabyController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !floating)
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
         } else if (collision.tag == "Water")
         {
-            rb.gravityScale = 0f;
+            rb.gravityScale = -.1f;           
             floating = true;
             dontMove = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Water")
+        {
+            floating = false;
+            rb.gravityScale = 1f;            
         }
     }
 
@@ -73,6 +82,10 @@ public class BabyController : MonoBehaviour {
 
         if (attachmentTransform == null)
         {
+            if (floating)
+            {
+                rb.velocity = rb.velocity * 0.9f;
+            }
 
             if (dontMove != true)
             {
@@ -93,7 +106,7 @@ public class BabyController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (!floating && collision.gameObject.tag == "Ground")
         {
             dontMove = false;
         }

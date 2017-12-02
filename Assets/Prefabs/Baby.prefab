@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 114318383618580528}
   - component: {fileID: 58560470506716352}
   - component: {fileID: 70066602009203196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Baby
-  m_TagString: Untagged
+  m_TagString: Baby
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253224246235080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.14, y: -3.6, z: -0.03606322}
+  m_LocalPosition: {x: 26.569958, y: 2.5662384, z: 0.009884562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,6 +109,7 @@ MonoBehaviour:
   minDistance: 0.05
   maxDistance: 0.3
   dontMove: 0
+  floating: 0
   minNextAction: 0
   maxNextaction: 10
   crawlSpeed: 30
