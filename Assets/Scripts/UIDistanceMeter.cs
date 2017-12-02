@@ -13,6 +13,6 @@ public class UIDistanceMeter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        myText.text = string.Format("Walked: {0:.1}", GameMaster.instance.distanceWalked);
+        myText.text = string.Format("Walked: {0}", GameMaster.instance.distanceWalked);
 	}
 }

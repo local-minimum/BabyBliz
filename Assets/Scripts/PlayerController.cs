@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float walkForce;
 
-
+    public PlayerBag bag;
     Rigidbody2D rb;
     Animation anim;
     

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 70745104174765086}
   - component: {fileID: 50959733931260958}
   - component: {fileID: 114894498698319930}
+  - component: {fileID: 114041612477583240}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -54,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 70
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -78,6 +79,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0019672066, y: 0.0014074624}
   m_Size: {x: 0.03462736, y: 0.041124966}
   m_Direction: 0
+--- !u!114 &114041612477583240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758902241537270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924405b510ed13142a55f8c11ba3c463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114894498698319930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,8 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acdf0454856b85448a4dc7c0e12c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 786
-  walkForce: 100
+  jumpForce: 15000
+  walkForce: 400
+  bag: {fileID: 0}
 --- !u!212 &212564753742612272
 SpriteRenderer:
   m_ObjectHideFlags: 1
