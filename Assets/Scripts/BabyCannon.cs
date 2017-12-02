@@ -5,6 +5,9 @@ using UnityEngine;
 public class BabyCannon : MonoBehaviour {
 
     [SerializeField]
+    Transform allTheBabies;
+
+    [SerializeField]
     BabyController babyPrefab;
 
     [SerializeField]
@@ -31,7 +34,7 @@ public class BabyCannon : MonoBehaviour {
 
     void Spawn()
     {
-        BabyController baby = Instantiate(babyPrefab);
+        BabyController baby = Instantiate(babyPrefab, allTheBabies, true);
         baby.transform.position = transform.position;
         baby.dontMove = true;
         Vector2 ejectForce = new Vector2(Random.Range(-1f, 1f) * lateralisation, Random.Range(upScaleMin, upScaleMax)).normalized;

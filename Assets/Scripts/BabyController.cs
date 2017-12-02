@@ -18,6 +18,14 @@ public class BabyController : MonoBehaviour {
     public bool dontMove;
     public bool floating;
 
+    public bool Floating
+    {
+        get
+        {
+            return floating;
+        }
+    }
+
     private void Start()
     {
         attachmentJoint = GetComponent<SpringJoint2D>();
@@ -48,6 +56,7 @@ public class BabyController : MonoBehaviour {
 
     public void SetAttachment(GameObject go, Rect attachmentArea)
     {
+        attachmentTransform = go.transform;
         attachmentJoint.connectedBody = go.GetComponent<Rigidbody2D>();
         attachmentJoint.distance = Random.Range(minDistance, maxDistance);
         attachmentJoint.enabled = true;
@@ -59,6 +68,7 @@ public class BabyController : MonoBehaviour {
 
         floating = false;
         rb.gravityScale = 1f;
+        rb.velocity = Vector3.zero;
     }
 
     Vector2 aim;
@@ -84,11 +94,12 @@ public class BabyController : MonoBehaviour {
         {
             if (floating)
             {
-                rb.velocity = rb.velocity * 0.9f;
+                rb.velocity *= 0.9f;
             }
 
             if (dontMove != true)
             {
+                Debug.Log(name + " Walking");
                 if (nextAction < Time.timeSinceLevelLoad)
                 {
                     nextAction = Random.Range(minNextAction, maxNextaction) + Time.timeSinceLevelLoad;

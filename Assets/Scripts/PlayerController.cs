@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
             Swim(horizontal);
         } else
         {
-
+            JumpingControl(horizontal);
         }
 
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxVelocities.x, maxVelocities.x), Mathf.Clamp(rb.velocity.y, -maxVelocities.y, maxVelocities.y));        
