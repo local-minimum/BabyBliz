@@ -37,7 +37,7 @@ public class BabyController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !floating)
+        if (collision.tag == "Player" && !floating && !killed)
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
         } else if (collision.tag == "Water")
@@ -125,7 +125,7 @@ public class BabyController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!floating && collision.gameObject.tag == "Ground")
+        if (!killed && !floating && collision.gameObject.tag == "Ground")
         {
             dontMove = false;
         }
@@ -150,10 +150,11 @@ public class BabyController : MonoBehaviour {
 
     public void SetBurning(bool value)
     {
-        if (!attachmentTransform)
-        {
-            Debug.LogWarning("Should burn baby");
+        if (attachmentTransform == null) {
+            killed = true;
+            health -= 0.1f;
         }
+
     }
 
     public void Kill()
