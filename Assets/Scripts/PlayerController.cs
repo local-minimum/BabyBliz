@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, 0));
         }
 
-        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxVelocities.x, maxVelocities.x), Mathf.Clamp(rb.velocity.y, -maxVelocities.y, maxVelocities.y));
+        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxVelocities.x, maxVelocities.x), Mathf.Clamp(rb.velocity.y, -maxVelocities.y, maxVelocities.y));        
     }
 
     public float groundingTime = 0.1f;
@@ -56,23 +56,28 @@ public class PlayerController : MonoBehaviour {
     {
         get
         {
-            return (Time.timeSinceLevelLoad - lastGrounded < groundingTime);
+            return grounders.Count > 0 || (Time.timeSinceLevelLoad - lastGrounded < groundingTime);
         }
     }
+
+    HashSet<Transform> grounders = new HashSet<Transform>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Grounded: " + collision.name);
         if (collision.gameObject.tag == "Ground")
         {
-            lastGrounded = Time.timeSinceLevelLoad;
+            grounders.Add(collision.transform);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("Leaving Ground: " + collision.name);
         if (collision.gameObject.tag == "Ground")
         {
             lastGrounded = Time.timeSinceLevelLoad;
+            grounders.Remove(collision.transform);
         }
     }
 }

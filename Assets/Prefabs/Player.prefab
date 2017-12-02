@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 50959733931260958}
   - component: {fileID: 114894498698319930}
   - component: {fileID: 114041612477583240}
+  - component: {fileID: 61429182874631022}
+  - component: {fileID: 61290702769477200}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -59,11 +61,61 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9b415e63f4944f743b47b3059f356653, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &61290702769477200
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758902241537270}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0021177027, y: -0.018289294}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.04, y: 0.04}
+    newSize: {x: 0.04, y: 0.04}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.028063823, y: 0.003421411}
+  m_EdgeRadius: 0
+--- !u!61 &61429182874631022
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758902241537270}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0021177027, y: -0.018289294}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.04, y: 0.04}
+    newSize: {x: 0.04, y: 0.04}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.028063823, y: 0.003421411}
+  m_EdgeRadius: 0
 --- !u!70 &70745104174765086
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -104,6 +156,9 @@ MonoBehaviour:
   jumpForce: 25000
   walkForce: 400
   bag: {fileID: 0}
+  maxVelocities: {x: 5, y: 30}
+  jumpingWalkForceFactor: 0.5
+  groundingTime: 0.1
 --- !u!212 &212564753742612272
 SpriteRenderer:
   m_ObjectHideFlags: 1
