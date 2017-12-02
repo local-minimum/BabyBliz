@@ -142,7 +142,7 @@ public class BabyController : MonoBehaviour {
         set
         {
             health = Mathf.Max(0, value);
-            rend.color = Color.Lerp(rend.color, Color.black, 1f - value);
+            rend.color = Color.Lerp(Color.white, Color.black, 1f - value);
         }
     }
 

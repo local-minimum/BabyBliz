@@ -49,6 +49,9 @@ public class PlayerStatus : MonoBehaviour {
         if (burning)
         {
             CauseBurn();
+        } else
+        {
+            PruneBunt();
         }
 	}
 
@@ -89,23 +92,53 @@ public class PlayerStatus : MonoBehaviour {
         burning = value;
     }
 
+    [SerializeField]
+    float fireStrength = 1f;
+
+    [SerializeField, Range(0, 1)]
+    float fireStrengthDecay = 0.75f;
+
+    void PruneBunt()
+    {
+        
+        if (Random.value < Time.deltaTime)
+        {
+            int lastBaby = babies.Count - 1;            
+            if (lastBaby >= 0)
+            {
+                BabyController baby = babies[lastBaby];
+                if (baby.Health < .95f)
+                {
+                    baby.Kill();
+                    babies.Remove(baby);
+                }
+            }
+        }
+    }
+
     void CauseBurn()
     {
-        int babyIndex = babies.Count - 1;
-        if (babyIndex < 0)
+        int lastBaby = babies.Count - 1;
+        if (lastBaby < 0)
         {
             GetComponentInChildren<SpriteRenderer>().color = Color.black;
             SendMessage("Kill", KilledBy.Fire);
         }
         else
         {
-            BabyController sacrifice = babies[babyIndex];
-            sacrifice.Health -= .05f;
-
-            if (sacrifice.Health == 0)
+            float fire = fireStrength * Time.deltaTime;
+            int lastToBurn = Mathf.Max(0, lastBaby - 10);
+            for (int i = lastBaby; i >= lastToBurn; i--)
             {
-                babies.Remove(sacrifice);
-                sacrifice.Kill();
+                BabyController sacrifice = babies[i];
+                sacrifice.Health -= fire;
+
+                if (sacrifice.Health < 0.05f)
+                {
+                    babies.Remove(sacrifice);
+                    sacrifice.Kill();
+                }
+                fire *= fireStrengthDecay;
             }
         }
     }
