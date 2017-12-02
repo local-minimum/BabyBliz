@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    [Range(0, 3000)]
-    public float jumpForce = 2000;
+   
+    public float jumpForce;
+    public float walkForce;
+
 
     Rigidbody2D rb;
     Animation anim;
@@ -21,8 +23,17 @@ public class PlayerController : MonoBehaviour {
         {
             rb.AddForce(Vector2.up * jumpForce);
             
-        }	
-	}
+        }
+        float horizontal = Input.GetAxis("Horizontal");
+
+        if (Mathf.Abs(horizontal) > 0.01)
+        {
+            rb.AddForce(Vector2.right * walkForce * horizontal);
+
+        }
+
+    
+    }
 
 
 }
