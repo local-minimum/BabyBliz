@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIDistanceMeter : MonoBehaviour {
+public class UITimeMeter : MonoBehaviour {
 
     Text myText;
 	// Use this for initialization
@@ -13,13 +13,8 @@ public class UIDistanceMeter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //myText.text = string.Format("Walked: {0}", GameMaster.instance.distanceWalked);
-        
-          
-            myText.text = "Walked: " + GameMaster.instance.distanceWalked.ToString("0.0") + "m";
-
-        
-       
+        //myText.text = string.Format("Time: {0}", GameMaster.instance.levelTime);
+        myText.text = "Time left: " + GameMaster.instance.levelTime.ToString("0") + "s";
 
     }
 }

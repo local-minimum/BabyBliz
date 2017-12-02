@@ -17,6 +17,7 @@ public class GameMaster : MonoBehaviour {
     public GameObject player;
     public Transform levelStart;
 
+
     public float distanceWalked
     {
         get
@@ -25,8 +26,21 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
+    public float levelTime
+    {
+        get
+        {
+            return  Time.timeSinceLevelLoad;
+        }
+    }
+
+    
+
     private void Start()
     {
         _instance = this;
+        
     }
+
+
 }
