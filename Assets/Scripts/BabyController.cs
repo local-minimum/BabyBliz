@@ -27,10 +27,15 @@ public class BabyController : MonoBehaviour {
         }
     }
 
-    public void SetAttachment(GameObject go)
+    public void SetAttachment(GameObject go, Rect attachmentArea)
     {
         attachmentJoint.connectedBody = go.GetComponent<Rigidbody2D>();
         attachmentJoint.distance = Random.Range(minDistance, maxDistance);
         attachmentJoint.enabled = true;
+        attachmentJoint.connectedAnchor =
+            new Vector2(
+                Mathf.Lerp(attachmentArea.min.x, attachmentArea.max.x, Random.value),
+                Mathf.Lerp(attachmentArea.min.y, attachmentArea.max.y, Random.value)
+            );
     }
 }

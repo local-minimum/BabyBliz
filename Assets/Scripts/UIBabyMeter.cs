@@ -13,6 +13,6 @@ public class UIBabyMeter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        myText.text ="Babies: ?"; //hook up baby count
+        myText.text = "Babies: " + GameMaster.instance.player.GetComponent<PlayerStatus>().BabyCount;
 	}
 }

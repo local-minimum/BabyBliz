@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour {
 
+    [SerializeField]
+    Rect attachmentArea;
+
+    HashSet<BabyController> babies = new HashSet<BabyController>();
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,13 +23,13 @@ public class PlayerStatus : MonoBehaviour {
     {
         get
         {
-            return 0;
+            return babies.Count;
         }
     }
 
     public void PickupBaby(BabyController baby)
     {
-        Debug.Log("Hello");
-        baby.SetAttachment(gameObject);
+        babies.Add(baby);
+        baby.SetAttachment(gameObject, attachmentArea);
     }
 }
