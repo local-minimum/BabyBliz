@@ -26,10 +26,13 @@ public class BabyController : MonoBehaviour {
         }
     }
 
+    SpriteRenderer rend;
+
     private void Start()
     {
         attachmentJoint = GetComponent<SpringJoint2D>();
         rb = GetComponent<Rigidbody2D>();
+        rend = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +63,7 @@ public class BabyController : MonoBehaviour {
         attachmentJoint.connectedBody = go.GetComponent<Rigidbody2D>();
         attachmentJoint.distance = Random.Range(minDistance, maxDistance);
         attachmentJoint.enabled = true;
+
         attachmentJoint.connectedAnchor =
             new Vector2(
                 Mathf.Lerp(attachmentArea.min.x, attachmentArea.max.x, Random.value),
@@ -89,6 +93,10 @@ public class BabyController : MonoBehaviour {
 
     private void Update()
     {
+        if (killed)
+        {
+            return;
+        }
 
         if (attachmentTransform == null)
         {
@@ -99,7 +107,7 @@ public class BabyController : MonoBehaviour {
 
             if (dontMove != true)
             {
-                Debug.Log(name + " Walking");
+
                 if (nextAction < Time.timeSinceLevelLoad)
                 {
                     nextAction = Random.Range(minNextAction, maxNextaction) + Time.timeSinceLevelLoad;
@@ -121,5 +129,37 @@ public class BabyController : MonoBehaviour {
         {
             dontMove = false;
         }
+    }
+
+    float health = 1f;
+    public float Health
+    {
+        get
+        {
+            return health;
+        }
+
+        set
+        {
+            health = Mathf.Max(0, value);
+            rend.color = Color.Lerp(rend.color, Color.black, 1f - value);
+        }
+    }
+
+    bool killed = false;
+
+    public void SetBurning(bool value)
+    {
+        if (!attachmentTransform)
+        {
+            Debug.LogWarning("Should burn baby");
+        }
+    }
+
+    public void Kill()
+    {
+        Debug.Log(name + " killed");
+        attachmentJoint.enabled = false;
+        killed = true;
     }
 }

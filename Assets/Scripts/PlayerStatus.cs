@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum KilledBy { Drowning };
+public enum KilledBy { Drowning, Fire };
 
 public class PlayerStatus : MonoBehaviour {
 
@@ -37,20 +37,19 @@ public class PlayerStatus : MonoBehaviour {
         }
     }
 
-    HashSet<BabyController> babies = new HashSet<BabyController>();
+    List<BabyController> babies = new List<BabyController>();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-
-    // Update is called once per frame
     [SerializeField]
     float energyLossRate = .1f;
 
 	void Update () {
         _energy -= Time.deltaTime * (BabyCount + 1) * energyLossRate;
         _energy = Mathf.Max(_energy, 0);
+
+        if (burning)
+        {
+            CauseBurn();
+        }
 	}
 
     public int BabyCount
@@ -75,8 +74,39 @@ public class PlayerStatus : MonoBehaviour {
         Destroy(item.gameObject);
     }
 
+    public bool isAlive = true;
+
     public void Kill(KilledBy reason)
     {
         Debug.Log(reason);
+        isAlive = false;
+    }
+
+    bool burning = false;
+
+    public void SetBurning(bool value)
+    {
+        burning = value;
+    }
+
+    void CauseBurn()
+    {
+        int babyIndex = babies.Count - 1;
+        if (babyIndex < 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().color = Color.black;
+            SendMessage("Kill", KilledBy.Fire);
+        }
+        else
+        {
+            BabyController sacrifice = babies[babyIndex];
+            sacrifice.Health -= .05f;
+
+            if (sacrifice.Health == 0)
+            {
+                babies.Remove(sacrifice);
+                sacrifice.Kill();
+            }
+        }
     }
 }
