@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 61290702769477200}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,9 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acdf0454856b85448a4dc7c0e12c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 25000
-  walkForce: 400
-  bag: {fileID: 0}
+  jumpForce: 40000
+  walkForce: 1000
   maxVelocities: {x: 5, y: 30}
   jumpingWalkForceFactor: 0.5
   groundingTime: 0.1

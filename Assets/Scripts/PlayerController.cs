@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float walkForce;
 
-    public PlayerBag bag;
     Rigidbody2D rb;
     Animation anim;
 
@@ -64,7 +63,6 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Grounded: " + collision.name);
         if (collision.gameObject.tag == "Ground")
         {
             grounders.Add(collision.transform);
@@ -73,7 +71,6 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Leaving Ground: " + collision.name);
         if (collision.gameObject.tag == "Ground")
         {
             lastGrounded = Time.timeSinceLevelLoad;
