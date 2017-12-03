@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
+    [SerializeField]
+    CameraTrack track;
+
     public Transform player;
 
     [SerializeField]
@@ -67,7 +70,7 @@ public class CameraController : MonoBehaviour {
 
     void Update () {
 
-        transform.position = player.position + new Vector3(0, 1f, -10f);
+        transform.position = Vector3.Lerp(transform.position, track.GetClosestPointOnTrack(player.position) + new Vector3(0, 1f, -10f), 0.2f);
 	}
 
     CameraZone camZone;
