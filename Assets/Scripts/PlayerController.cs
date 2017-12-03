@@ -10,13 +10,17 @@ public class PlayerController : MonoBehaviour {
     public float walkForce;
 
     Rigidbody2D rb;
-    Animation anim;
+    Animator anim;
+    SpriteRenderer spriteRend;
+
     bool isAlive = true;
     float lastGrounded;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
+        spriteRend = GetComponentInChildren<SpriteRenderer>();
 	}
 
     public Vector2 maxVelocities;
@@ -93,14 +97,20 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump"))
         {
             rb.AddForce(Vector2.up * jumpForce * playerStatus.JumpEnergy);
-
+            anim.SetTrigger("Jump");
         }
 
         if (Mathf.Abs(horizontal) > 0.01f)
         {
-            rb.AddForce(Vector2.right * walkForce * playerStatus.Energy * horizontal);
+            rb.AddForce(Vector2.right * walkForce * playerStatus.Energy * horizontal);            
         }
 
+        float absX = Mathf.Abs(rb.velocity.x);
+        if (absX > 0.01f)
+        {
+            spriteRend.flipX = rb.velocity.x < 0f;
+        }        
+        anim.SetFloat("WalkSpeed", absX);
         rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, 0));
     }
 
