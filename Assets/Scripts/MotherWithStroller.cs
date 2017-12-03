@@ -5,12 +5,6 @@ using System;
 
 public class MotherWithStroller : MonoBehaviour {
 
-	[SerializeField]
-	Transform allTheBabies;
-
-	[SerializeField]
-	BabyController babyPrefab;
-
 	float currentDistance;
 
 	[SerializeField]
@@ -29,14 +23,19 @@ public class MotherWithStroller : MonoBehaviour {
 	[SerializeField]
 	Rect attachment;
 
+	BabyController baby;
+
 	void Start() {
 		strollerSpriteRenderer = stroller.GetComponent<SpriteRenderer> ();
-		BabyController baby = Instantiate(babyPrefab, allTheBabies, true);
-		baby.transform.position = transform.position;
-		baby.SetAttachment (stroller, attachment);
 	}
 
 	void Update () {
+		if (baby == null) {
+			baby = GameMaster.instance.CreateBaby ();
+			baby.transform.position = transform.position;
+			baby.SetAttachment (stroller, attachment);
+			baby.DoNotRemove = true;
+		}
 		float toMove = direction * 1 * walkSpeed * Time.deltaTime;
 		if (Math.Abs (currentDistance) > distanceToWalk) {
 			direction = -direction;

@@ -43,6 +43,25 @@ public class BabyController : MonoBehaviour {
 		}
 	}
 
+	bool doNotRemove;
+
+	public bool DoNotRemove 
+	{
+		get {
+			return doNotRemove && !Killed;
+		}
+		set {
+			doNotRemove = value;
+		}
+	}
+	 
+	public bool Killed 
+	{
+		get {
+			return killed;
+		}
+	}
+
     SpriteRenderer rend;
 
     private void Awake()
@@ -58,8 +77,8 @@ public class BabyController : MonoBehaviour {
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
 			AudioSource audioSource = GetComponent<AudioSource> ();
-			audioSource.clip = jollers [Random.Range (0, jollers.Count - 1)];
-			audioSource.pitch = Random.value + 1f;
+			audioSource.clip = jollers [UnityEngine.Random.Range (0, jollers.Count - 1)];
+			audioSource.pitch = UnityEngine.Random.value + 1f;
 			audioSource.Play ();
         } else if (collision.tag == "Water")
         {
@@ -121,6 +140,22 @@ public class BabyController : MonoBehaviour {
     [SerializeField]
     CapsuleCollider2D capsulCollider;
 
+	private System.DateTime? visibleTime;
+
+	public System.DateTime? VisibleTime {
+		get {
+			return visibleTime;
+		}
+	}
+
+	void OnBecameVisible() {
+		visibleTime = System.DateTime.Now;
+	}
+
+	void OnBecameInvisible() {
+		visibleTime = null;
+	}
+		
     private void Update()
     {
         if (killed)
