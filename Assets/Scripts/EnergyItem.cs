@@ -41,10 +41,10 @@ public class EnergyItem : MonoBehaviour {
     private void Update()
     {
         if (player != null) {
-            if (Input.GetButtonDown("Fire1")) {
+            if (Input.GetButtonDown("Action")) {
                 consuming = true;
                 consumptionStart = Time.timeSinceLevelLoad;
-            } else if (Input.GetButtonUp("Fire1"))
+            } else if (Input.GetButtonUp("Action"))
             {
                 consuming = false;
             }
