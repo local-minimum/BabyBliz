@@ -27,6 +27,7 @@ public class Bird : MonoBehaviour {
 		}
 		Vector3 direction = (positions[index].transform.position - transform.position).normalized;
 		transform.position +=  direction * birdSpeed * Time.deltaTime;
+			GetComponent<SpriteRenderer> ().flipX = direction.x < 0;
 	
 
 
