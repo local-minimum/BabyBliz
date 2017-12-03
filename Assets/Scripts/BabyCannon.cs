@@ -16,7 +16,7 @@ public class BabyCannon : MonoBehaviour {
 	void Update () {
 	    if (Random.value < spawnRate * Time.deltaTime)
         {
-            Spawn();
+            BirthChild();
         }
 	}
 
@@ -32,7 +32,7 @@ public class BabyCannon : MonoBehaviour {
     [SerializeField]
     float force = 100f;
 
-    void Spawn()
+    public void BirthChild()
     {
         BabyController baby = Instantiate(babyPrefab, allTheBabies, true);
         baby.transform.position = transform.position;
