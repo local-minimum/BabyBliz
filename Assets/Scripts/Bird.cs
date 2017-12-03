@@ -14,6 +14,15 @@ public class Bird : MonoBehaviour {
 	List<GameObject> positions;
 
 	[SerializeField]
+	List<AudioClip> jollers; 
+
+	[SerializeField]
+	List<AudioClip> laughs; 
+
+	[SerializeField]
+	List<AudioClip> screams; 
+
+	[SerializeField]
 	float spawnRate = 0.1f;
 
 	float birdSpeed = 5f;
@@ -27,6 +36,7 @@ public class Bird : MonoBehaviour {
 		}
 		Vector3 direction = (positions[index].transform.position - transform.position).normalized;
 		transform.position +=  direction * birdSpeed * Time.deltaTime;
+			GetComponent<SpriteRenderer> ().flipX = direction.x < 0;
 	
 
 
