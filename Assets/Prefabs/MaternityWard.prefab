@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 212343547671692660}
   - component: {fileID: 61487699436042384}
   - component: {fileID: 114474620544301090}
+  - component: {fileID: 61597255413968762}
   m_Layer: 10
   m_Name: MaternityWard
   m_TagString: Untagged
@@ -75,6 +76,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1492419808413348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4846096748347244}
+  m_Layer: 10
+  m_Name: SpawnPointB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1549038760121236
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4717349312374010}
   m_Layer: 10
-  m_Name: SpawnPointB
+  m_Name: SpawnPointC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1446659023267884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.6, y: -4.31, z: 0}
+  m_LocalPosition: {x: -19.5, y: -3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4741418426149238}
@@ -139,11 +155,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549038760121236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.52, y: -4.31, z: 0}
+  m_LocalPosition: {x: 10.05, y: -3.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4741418426149238}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4741418426149238
 Transform:
@@ -152,16 +168,30 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375517970621058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.41, y: 5.02, z: 0}
+  m_LocalPosition: {x: 29.434341, y: 2.5034912, z: -0.017084165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987435437523176}
   - {fileID: 4866467802501780}
   - {fileID: 4707103936436628}
   - {fileID: 4345250110130166}
+  - {fileID: 4846096748347244}
   - {fileID: 4717349312374010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4846096748347244
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1492419808413348}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.52, y: -3.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4741418426149238}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4866467802501780
 Transform:
@@ -214,6 +244,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.478487, y: 3.7291212}
   m_EdgeRadius: 0
+--- !u!61 &61597255413968762
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375517970621058}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 4.752695}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 10}
+    newSize: {x: 6.4, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8, y: 0.3401742}
+  m_EdgeRadius: 0
 --- !u!114 &114293009669602106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,9 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2727e65f6f6d74784914000bc0128f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allTheBabies: {fileID: 0}
-  babyPrefab: {fileID: 114318383618580528, guid: 2d2d502bbf0eb714daba68a36e252666,
-    type: 2}
   spawnRate: 0
   lateralisation: 10
   upScaleMin: 5
@@ -248,14 +300,15 @@ MonoBehaviour:
   - {fileID: 114612232546889298}
   - {fileID: 114293009669602106}
   doorCollider: {fileID: 61487699436042384}
-  mothersToSpawn: 10
+  mothersToSpawn: 15
   motherPrefab: {fileID: 114234516976281298, guid: 72f65aa1d54ed504ab42cbc2a50d53f1,
     type: 2}
   door: {fileID: 4707103936436628}
   motherSpawnPoints:
   - {fileID: 4345250110130166}
+  - {fileID: 4846096748347244}
   - {fileID: 4717349312374010}
-  motherSpawnRate: 0.3
+  motherSpawnRate: 0.2
 --- !u!114 &114612232546889298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,9 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2727e65f6f6d74784914000bc0128f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allTheBabies: {fileID: 0}
-  babyPrefab: {fileID: 114318383618580528, guid: 2d2d502bbf0eb714daba68a36e252666,
-    type: 2}
   spawnRate: 0
   lateralisation: 10
   upScaleMin: 5
