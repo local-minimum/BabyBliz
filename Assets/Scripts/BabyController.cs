@@ -28,7 +28,7 @@ public class BabyController : MonoBehaviour {
 
     SpriteRenderer rend;
 
-    private void Start()
+    private void Awake()
     {
         attachmentJoint = GetComponent<SpringJoint2D>();
         rb = GetComponent<Rigidbody2D>();
