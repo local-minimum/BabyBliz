@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour {
     private void Start()
     {
         myCam = GetComponent<Camera>();
-        //StartCoroutine(_updateTarget());
+        orthoGraphicSizeAreaTarget = myCam.orthographicSize;
     }
 
     Vector3 playerTrackPosition;
@@ -38,18 +38,6 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     float aimAttack = 0.4f;
 
-    IEnumerator<WaitForSeconds> _updateTarget()
-    {
-        while (true)
-        {
-            playerMovement = player.position - playerPosition;
-            playerTrackPosition = Vector3.Lerp(
-                playerTrackPosition, player.position, aimAttack);
-            playerPosition = player.position;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
     public float DeltaXFromOrigin
     {
         get
@@ -58,19 +46,13 @@ public class CameraController : MonoBehaviour {
         }
     }
 
-    Vector2 PlayerOnScren()
-    {
-        Vector2 playerPos = Camera.main.WorldToScreenPoint(player.transform.position);
-        Vector2 relPos = new Vector2(playerPos.x / Screen.width, playerPos.y / Screen.height);
-        Vector2 direction = relPos - new Vector2(0.5f, 0.5f);
-        return relPos;
-    }
-
-
+    Vector3 camOffset = new Vector3(0, 1f, -10f);
 
     void Update () {
-
-        transform.position = Vector3.Lerp(transform.position, track.GetClosestPointOnTrack(player.position) + new Vector3(0, 1f, -10f), aimAttack);
+        Vector3 trackPoint = track.GetClosestPointOnTrack(player.position);
+        float yError = Mathf.Max(player.transform.position.y - transform.position.y, 1);
+        transform.position = Vector3.Lerp(transform.position, trackPoint + camOffset + Vector3.up * Mathf.Max(yError - 1) * 5f, aimAttack);
+        myCam.orthographicSize = orthoGraphicSizeAreaTarget * Mathf.Min(Mathf.Pow(yError, 0.1f), 1.5f);
 	}
 
     CameraZone camZone;
@@ -83,18 +65,19 @@ public class CameraController : MonoBehaviour {
             StartCoroutine(_animateSize(zone.zoomSize, zone.zoomDuration, zone));
         }
     }
+    float orthoGraphicSizeAreaTarget;
 
     IEnumerator<WaitForSeconds> _animateSize(float size, float duration, CameraZone zone)
     {
         float startT = Time.timeSinceLevelLoad;
         float progress = 0;
-        float startSize = myCam.orthographicSize;
+        float startSize = orthoGraphicSizeAreaTarget;
         while (progress < 1f && zone == camZone)
         {
             progress = Mathf.Clamp01( (Time.timeSinceLevelLoad - startT) / duration );
-            myCam.orthographicSize = Mathf.Lerp(startSize, size, progress);
+            orthoGraphicSizeAreaTarget = Mathf.Lerp(startSize, size, progress);
             yield return new WaitForSeconds(0.0015f);
         }
-        myCam.orthographicSize = size;
+        orthoGraphicSizeAreaTarget = size;
     }
 }
