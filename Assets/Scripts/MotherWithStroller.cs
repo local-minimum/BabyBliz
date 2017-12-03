@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class MotherWithStroller : MonoBehaviour {
 
@@ -25,26 +24,58 @@ public class MotherWithStroller : MonoBehaviour {
 
 	BabyController baby;
 
+    Vector3 strollerLocalOffset;
+
 	void Start() {
+
+        strollerLocalOffset = stroller.transform.localPosition;
 		strollerSpriteRenderer = stroller.GetComponent<SpriteRenderer> ();
-	}
+  
+        baby = GameMaster.instance.CreateBaby();
+        baby.transform.position = transform.position;
+        baby.SetAttachment(stroller, attachment);
+        baby.DoNotRemove = true;
+        
+    }
 
 	void Update () {
-		if (baby == null) {
-			baby = GameMaster.instance.CreateBaby ();
-			baby.transform.position = transform.position;
-			baby.SetAttachment (stroller, attachment);
-			baby.DoNotRemove = true;
-		}
 		float toMove = direction * 1 * walkSpeed * Time.deltaTime;
-		if (Math.Abs (currentDistance) > distanceToWalk) {
+		if (shouldTurn) {
 			direction = -direction;
 			toMove = -toMove;
-			stroller.transform.Translate (direction*2, 0, 0);
+            stroller.transform.localPosition = new Vector3(strollerLocalOffset.x * direction, strollerLocalOffset.y, strollerLocalOffset.z);
 			strollerSpriteRenderer.flipX = !strollerSpriteRenderer.flipX;
 		}
 		currentDistance += toMove;
 		transform.Translate(toMove, 0,  0);
 	}
+
+    bool shouldTurn
+    {
+        get
+        {
+            if (Mathf.Sign(distanceToWalk) < 0)
+            {
+                if (currentDistance < distanceToWalk && direction < 0)
+                {
+                    return true;
+                } else if (currentDistance > 0 && direction > 0)
+                {
+                    return true;
+                }
+            } else
+            {
+                if (currentDistance > distanceToWalk && direction > 0)
+                {
+                    return true;
+                } else if (currentDistance < 0 && direction < 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+    }
 }
 	
