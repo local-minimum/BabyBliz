@@ -83,6 +83,15 @@ public class BabyController : MonoBehaviour {
         rb.velocity = Vector3.zero;
     }
 
+    public void FreeAttachment()
+    {
+        attachmentTransform = null;
+        attachmentJoint.enabled = false;
+        floating = false;
+        rb.gravityScale = 1f;
+        dontMove = true;
+    }
+
     Vector2 aim;
     [SerializeField]
     float minNextAction = 5f;
