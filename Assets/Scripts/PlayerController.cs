@@ -103,12 +103,15 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    float lastJump;
+
     void Walk(float horizontal)
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Time.timeSinceLevelLoad - lastJump > 0.35f)
         {
             rb.AddForce(Vector2.up * jumpForce * playerStatus.JumpEnergy);
             anim.SetTrigger("Jump");
+            lastJump = Time.timeSinceLevelLoad;
         }
 
         if (Input.GetButton("Horizontal"))

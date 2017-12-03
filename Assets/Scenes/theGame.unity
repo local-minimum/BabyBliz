@@ -7523,6 +7523,18 @@ Prefab:
       propertyPath: xLookAhead.m_Curve.Array.data[4].value
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4114623394751020, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713582428026886, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658224696515946, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.96
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
   m_IsPrefabParent: 0
