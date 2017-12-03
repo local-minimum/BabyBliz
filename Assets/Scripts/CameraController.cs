@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     CameraTrack track;
 
-    public Transform player;
+    public PlayerController player;
 
     [SerializeField]
     Rect noMove;
@@ -47,11 +47,14 @@ public class CameraController : MonoBehaviour {
     }
 
     Vector3 camOffset = new Vector3(0, 1f, -10f);
+    [SerializeField]
+    AnimationCurve xLookAhead;
 
     void Update () {
-        Vector3 trackPoint = track.GetClosestPointOnTrack(player.position);
+        Vector3 trackPoint = track.GetClosestPointOnTrack(player.transform.position);
         float yError = Mathf.Max(player.transform.position.y - transform.position.y, 1);
-        transform.position = Vector3.Lerp(transform.position, trackPoint + camOffset + Vector3.up * Mathf.Max(yError - 1) * 5f, aimAttack);
+        float xFactor = player.VelocityX;
+        transform.position = Vector3.Lerp(transform.position, trackPoint + camOffset + Vector3.up * Mathf.Max(yError - 1) * 5f + Vector3.right * xLookAhead.Evaluate(xFactor), aimAttack);
         myCam.orthographicSize = orthoGraphicSizeAreaTarget * Mathf.Min(Mathf.Pow(yError, 0.1f), 1.5f);
 	}
 

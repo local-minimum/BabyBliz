@@ -95,6 +95,14 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     float xDampening = 0.1f;
 
+    public float VelocityX
+    {
+        get
+        {
+            return rb.velocity.x;
+        }
+    }
+
     void Walk(float horizontal)
     {
         if (Input.GetButtonDown("Jump"))

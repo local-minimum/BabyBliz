@@ -2891,11 +2891,12 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 50959733931260958, guid: 31acbebd02b06cf4782ae06432ae9f68,
     type: 2}
   m_PrefabInternal: {fileID: 470776919}
---- !u!4 &470776926 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4458487756743786, guid: 31acbebd02b06cf4782ae06432ae9f68,
+--- !u!114 &470776924 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114894498698319930, guid: 31acbebd02b06cf4782ae06432ae9f68,
     type: 2}
   m_PrefabInternal: {fileID: 470776919}
+  m_Script: {fileID: 11500000, guid: 0acdf0454856b85448a4dc7c0e12c5e7, type: 3}
 --- !u!1 &472765692
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,36 +3100,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &535917568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 535917569}
-  m_Layer: 0
-  m_Name: CheckPoint (City ThirdMaternity) (7)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &535917569
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 535917568}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 289.61, y: -0.23000002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540240912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,36 +3729,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4846419663303244, guid: 9dcbd74363682b24f8714d938a46b69e,
     type: 2}
   m_PrefabInternal: {fileID: 593560682}
---- !u!1 &702397175
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 702397176}
-  m_Layer: 0
-  m_Name: CheckPoint (City SecondMaternity) (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &702397176
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 702397175}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 238.38, y: -0.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705302436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4809,41 +4750,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &874383565
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 874383566}
-  m_Layer: 0
-  m_Name: CheckPoint (City Stairs)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &874383566
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 874383565}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 184.92, y: -0.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &904283645 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4580147639984264, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 1402436974}
 --- !u!1001 &919495777
 Prefab:
   m_ObjectHideFlags: 0
@@ -5229,36 +5135,6 @@ Transform:
   - {fileID: 1122016137}
   m_Father: {fileID: 1680226647}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1029462477
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1029462478}
-  m_Layer: 0
-  m_Name: CheckPoint (City ThirdMaternity)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1029462478
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1029462477}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 251.8, y: 1.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035273208
 GameObject:
@@ -6132,36 +6008,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1402436974}
   m_Script: {fileID: 11500000, guid: 253bbd46d9795ce4d85534e198369221, type: 3}
---- !u!1 &1154511699
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1154511700}
-  m_Layer: 0
-  m_Name: CheckPoint (City)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1154511700
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1154511699}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 177.03, y: -1.78, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1159190734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7034,36 +6880,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1256060852
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1256060853}
-  m_Layer: 0
-  m_Name: CheckPoint (City SecondMaternity) (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1256060853
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1256060852}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 196.45, y: 1.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1263622497
 GameObject:
   m_ObjectHideFlags: 0
@@ -7474,36 +7290,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4782541783292654, guid: d2b1e77c74feec34189cd687dd877a5e,
     type: 2}
   m_PrefabInternal: {fileID: 1378923618}
---- !u!1 &1386510959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1386510960}
-  m_Layer: 0
-  m_Name: CheckPoint (City ThirdMaternity) (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1386510960
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1386510959}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 279.87, y: -0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1397624649
 GameObject:
   m_ObjectHideFlags: 0
@@ -7610,10 +7396,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
         type: 2}
-      propertyPath: track.Array.size
-      value: 18
+      propertyPath: xLookAhead.m_Curve.Array.size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4042563650674756, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7651,99 +7437,91 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 470776926}
-    - target: {fileID: 4078149872638868, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078149872638868, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 142.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
+      objectReference: {fileID: 470776924}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
         type: 2}
-      propertyPath: track.Array.data[9]
-      value: 
-      objectReference: {fileID: 1154511700}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[10]
-      value: 
-      objectReference: {fileID: 874383566}
-    - target: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 152.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[11]
-      value: 
-      objectReference: {fileID: 1256060853}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[12]
-      value: 
-      objectReference: {fileID: 1408330688}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[13]
-      value: 
-      objectReference: {fileID: 702397176}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[14]
-      value: 
-      objectReference: {fileID: 1029462478}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[15]
-      value: 
-      objectReference: {fileID: 1858619720}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[16]
-      value: 
-      objectReference: {fileID: 1386510960}
-    - target: {fileID: 114145475550187194, guid: 1e6801ffb1e427a47bd3ba10854473da,
-        type: 2}
-      propertyPath: track.Array.data[17]
-      value: 
-      objectReference: {fileID: 535917569}
-    - target: {fileID: 4713582428026886, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4713582428026886, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 90.9
+      propertyPath: xLookAhead.m_Curve.Array.data[0].value
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
         type: 2}
-      propertyPath: aimAttack
-      value: 0.025
+      propertyPath: xLookAhead.m_Curve.Array.data[1].time
+      value: -1.5096661
       objectReference: {fileID: 0}
-    - target: {fileID: 4794535393533156, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 121.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 4794535393533156, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 20431868623847070, guid: 1e6801ffb1e427a47bd3ba10854473da,
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
         type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 1
+      propertyPath: xLookAhead.m_Curve.Array.data[1].value
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20431868623847070, guid: 1e6801ffb1e427a47bd3ba10854473da,
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
         type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 1
+      propertyPath: xLookAhead.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20431868623847070, guid: 1e6801ffb1e427a47bd3ba10854473da,
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
         type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 1
+      propertyPath: xLookAhead.m_Curve.Array.data[0].time
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[2].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[2].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[2].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[2].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[3].time
+      value: 1.4842216
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[3].value
+      value: -0.05358787
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[3].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[3].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[4].time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029546479617602, guid: 1e6801ffb1e427a47bd3ba10854473da,
+        type: 2}
+      propertyPath: xLookAhead.m_Curve.Array.data[4].value
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e6801ffb1e427a47bd3ba10854473da, type: 2}
@@ -7827,36 +7605,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4177690015620456, guid: d72a25b857e5b4e90a1cbcbe589741ce,
     type: 2}
   m_PrefabInternal: {fileID: 1405228293}
---- !u!1 &1408330687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1408330688}
-  m_Layer: 0
-  m_Name: CheckPoint (City SecondMaternity) (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1408330688
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1408330687}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 214.92, y: 0.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1436530645
 GameObject:
   m_ObjectHideFlags: 0
@@ -9886,36 +9634,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4782541783292654, guid: d2b1e77c74feec34189cd687dd877a5e,
     type: 2}
   m_PrefabInternal: {fileID: 1810772281}
---- !u!1 &1858619719
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1307171009392148, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1858619720}
-  m_Layer: 0
-  m_Name: CheckPoint (City ThirdMaternity) (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1858619720
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4517510897269258, guid: 1e6801ffb1e427a47bd3ba10854473da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1858619719}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 273.35, y: 0.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 904283645}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1867249335
 Prefab:
   m_ObjectHideFlags: 0
