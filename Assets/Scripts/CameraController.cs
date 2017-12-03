@@ -70,7 +70,7 @@ public class CameraController : MonoBehaviour {
 
     void Update () {
 
-        transform.position = Vector3.Lerp(transform.position, track.GetClosestPointOnTrack(player.position) + new Vector3(0, 1f, -10f), 0.2f);
+        transform.position = Vector3.Lerp(transform.position, track.GetClosestPointOnTrack(player.position) + new Vector3(0, 1f, -10f), aimAttack);
 	}
 
     CameraZone camZone;

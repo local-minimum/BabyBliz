@@ -92,6 +92,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    [SerializeField]
+    float xDampening = 0.1f;
+
     void Walk(float horizontal)
     {
         if (Input.GetButtonDown("Jump"))
@@ -100,9 +103,13 @@ public class PlayerController : MonoBehaviour {
             anim.SetTrigger("Jump");
         }
 
-        if (Mathf.Abs(horizontal) > 0.01f)
+        if (Input.GetButton("Horizontal"))
         {
             rb.AddForce(Vector2.right * walkForce * playerStatus.Energy * horizontal);            
+        } else
+        {
+            float newX = rb.velocity.x * Mathf.Max(1 - xDampening * Time.deltaTime, 0);
+            rb.velocity = new Vector2(newX, rb.velocity.y);
         }
 
         float absX = Mathf.Abs(rb.velocity.x);
