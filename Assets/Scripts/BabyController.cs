@@ -13,6 +13,15 @@ public class BabyController : MonoBehaviour {
     [SerializeField]
     float maxDistance = 0.3f;
 
+	[SerializeField]
+	List<AudioClip> jollers; 
+
+	[SerializeField]
+	List<AudioClip> laughs; 
+
+	[SerializeField]
+	List<AudioClip> screams; 
+
     Rigidbody2D rb;
 
     public bool dontMove;

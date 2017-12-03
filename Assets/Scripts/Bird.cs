@@ -14,6 +14,15 @@ public class Bird : MonoBehaviour {
 	List<GameObject> positions;
 
 	[SerializeField]
+	List<AudioClip> jollers; 
+
+	[SerializeField]
+	List<AudioClip> laughs; 
+
+	[SerializeField]
+	List<AudioClip> screams; 
+
+	[SerializeField]
 	float spawnRate = 0.1f;
 
 	float birdSpeed = 5f;
