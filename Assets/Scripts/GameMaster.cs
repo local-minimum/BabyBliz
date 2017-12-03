@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour {
 
@@ -106,6 +107,33 @@ public class GameMaster : MonoBehaviour {
     {
         _instance = this;
         
+    }
+
+    float reloadStart;
+    bool reloadPressing;
+
+    public float progressToReload
+    {
+        get
+        {
+            return reloadPressing ? Mathf.Min((Time.timeSinceLevelLoad - reloadStart) / 1f, 1f) : 0f;
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetButtonDown("Reload"))
+        {
+            reloadStart = Time.timeSinceLevelLoad;
+            reloadPressing = true;
+        } else if (Input.GetButtonUp("Reload")) { 
+            reloadPressing = false;
+        } else if (reloadPressing) {
+            if (progressToReload == 1f)
+            {
+                SceneManager.LoadScene("theGame");
+            }
+        }
     }
 
 
