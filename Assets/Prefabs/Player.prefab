@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758902241537270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.01, y: -0.94, z: -0.03606322}
+  m_LocalPosition: {x: -3.56, y: -2.11, z: -0.03606322}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604390400556676}
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1623096951206750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4458487756743786}
@@ -147,7 +147,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ad39f693410c0fd4db4f1c82d5a59af5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -174,25 +174,25 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.073675014
+      inSlope: 0.0145427035
+      outSlope: 0.0145427035
       tangentMode: 0
     - serializedVersion: 2
-      time: 14.83799
-      value: 0.71085227
+      time: 26.263893
+      value: 0.6586422
       inSlope: 0.03695488
       outSlope: 0.03695488
       tangentMode: 0
     - serializedVersion: 2
-      time: 40
-      value: 1
+      time: 59.235043
+      value: 1.010588
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 54.884426
-      value: 1.5014457
+      time: 92.08781
+      value: 1.2609754
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -204,9 +204,9 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.16243653
+      inSlope: 0.025272842
+      outSlope: 0.025272842
       tangentMode: 0
     - serializedVersion: 2
       time: 40.361637
@@ -223,8 +223,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  _energy: 40
-  maxEnergy: 80
+  _energy: 30
+  maxEnergy: 100
   energyLossRate: 0.1
   isAlive: 1
   fireStrength: 0.5
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 114041612477583240}
-  jumpForce: 60000
+  jumpForce: 75000
   walkForce: 1000
   maxVelocities: {x: 5, y: 30}
   jumpingWalkForceFactor: 0.5

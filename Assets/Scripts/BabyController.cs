@@ -162,7 +162,10 @@ public class BabyController : MonoBehaviour {
     float xDirection = 0;
 
     [SerializeField]
-    float crawlSpeed;
+    float crawlForce = 100f;
+
+    [SerializeField]
+    float maxCrawl = 4f;
 
     [SerializeField]
     CapsuleCollider2D capsulCollider;
@@ -204,12 +207,13 @@ public class BabyController : MonoBehaviour {
                 {
                     nextAction = Random.Range(minNextAction, maxNextaction) + Time.timeSinceLevelLoad;
                     xDirection = Random.Range(-1f, 1f);
+                    xDirection = Mathf.Min(Mathf.Abs(xDirection), 0.5f) * Mathf.Sign(xDirection);
                 }
                 else
                 {
-                    rb.AddForce(new Vector2(xDirection * crawlSpeed, 0));
-                    if (Random.value < 0.1f)
-                        capsulCollider.size = new Vector2(Random.Range(0.7f, 0.9f), Random.Range(0.8f, 1.0f));
+                    rb.AddForce(new Vector2(xDirection * crawlForce, 0));
+                    float x = Mathf.Min(Mathf.Abs(rb.velocity.x), maxCrawl) * Mathf.Sign(rb.velocity.x);
+                    rb.velocity = new Vector2(x, rb.velocity.y);
                 }
             }
         }
