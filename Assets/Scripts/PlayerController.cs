@@ -143,6 +143,10 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.tag == "Ground")
         {
             grounders.Add(collision.transform);
+            if (grounders.Count == 1)
+            {
+                anim.SetTrigger("Land");
+            }
         } else if (collision.gameObject.tag == "Water")
         {
             waters.Add(collision.transform);
