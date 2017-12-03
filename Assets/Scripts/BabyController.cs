@@ -57,6 +57,10 @@ public class BabyController : MonoBehaviour {
         if (collision.tag == "Player" && !floating && !killed)
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
+			AudioSource audioSource = GetComponent<AudioSource> ();
+			audioSource.clip = jollers [Random.Range (0, jollers.Count - 1)];
+			audioSource.pitch = Random.value + 1f;
+			audioSource.Play ();
         } else if (collision.tag == "Water")
         {
             rb.gravityScale = -.1f;           
@@ -185,6 +189,11 @@ public class BabyController : MonoBehaviour {
 
     public void Kill()
     {
+		AudioSource audioSource = GetComponent<AudioSource> ();
+		audioSource.clip = screams [Random.Range (0, screams.Count - 1)];
+		audioSource.pitch = Random.value + 1f;
+		audioSource.Play ();
+
         Debug.Log(name + " killed");
         attachmentJoint.enabled = false;
         killed = true;
