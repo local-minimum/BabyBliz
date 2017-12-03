@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allTheBabies: {fileID: 4497623860538016}
-  babyPrefab: {fileID: 0}
+  babyPrefab: {fileID: 114318383618580528, guid: 2d2d502bbf0eb714daba68a36e252666,
+    type: 2}
   player: {fileID: 0}
   levelStart: {fileID: 0}
