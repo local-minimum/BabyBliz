@@ -12,7 +12,13 @@ public class Tree : MonoBehaviour {
 
     public Transform AllBabies;
 
+    List<BabyController> babyFruits = new List<BabyController>();
+
+    Transform player;
+
 	void Start () {
+        player = GameMaster.instance.player.transform;
+
         for (int i=0; i<babies; i++)
         {
             AdoptBaby();
@@ -24,6 +30,7 @@ public class Tree : MonoBehaviour {
         BabyController baby =  Instantiate(babyPrefab, AllBabies, true);
         baby.transform.position = GlobalAdoptionCenter;
         baby.SetAttachment(gameObject, ClingArea);
+        babyFruits.Add(baby);
     }
 
     Vector2 GlobalAdoptionCenter
@@ -33,4 +40,22 @@ public class Tree : MonoBehaviour {
             return transform.TransformPoint(ClingArea.center);
         }
     }
+
+    [SerializeField]
+    float dropRange = 0.1f;
+    private void Update()
+    {
+        
+        for (int i=babyFruits.Count - 1; i>=0; i--)
+        {
+            BabyController baby = babyFruits[i];
+            if (Mathf.Abs(player.position.x - baby.transform.position.x) < dropRange)
+            {
+                baby.FreeAttachment();
+                babyFruits.Remove(baby);
+            }
+        }
+    }
+
+
 }
