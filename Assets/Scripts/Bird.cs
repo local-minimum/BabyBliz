@@ -5,22 +5,7 @@ using UnityEngine;
 public class Bird : MonoBehaviour {
 
 	[SerializeField]
-	Transform allTheBabies;
-
-	[SerializeField]
-	BabyController babyPrefab;
-
-	[SerializeField]
 	List<GameObject> positions;
-
-	[SerializeField]
-	List<AudioClip> jollers; 
-
-	[SerializeField]
-	List<AudioClip> laughs; 
-
-	[SerializeField]
-	List<AudioClip> screams; 
 
 	[SerializeField]
 	float spawnRate = 0.1f;
@@ -54,7 +39,7 @@ public class Bird : MonoBehaviour {
 
 	public void BirthChild()
 	{
-		BabyController baby = Instantiate(babyPrefab, allTheBabies, true);
+		BabyController baby = GameMaster.instance.CreateBaby ();
 		baby.transform.position = transform.position;
 		baby.dontMove = true;
 		Vector2 ejectForce = new Vector2(Random.Range(0, 0f) * lateralisation, 1).normalized;

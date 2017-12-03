@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour {
 
-    public BabyController babyPrefab;
-
     public Rect ClingArea;
 
     public int babies = 3;
 
-    public Transform AllBabies;
+	[SerializeField]
+	GameMaster gameMaster;
 
     List<BabyController> babyFruits = new List<BabyController>();
 
@@ -27,7 +26,7 @@ public class Tree : MonoBehaviour {
 	
     void AdoptBaby()
     {
-        BabyController baby =  Instantiate(babyPrefab, AllBabies, true);
+		BabyController baby = GameMaster.instance.CreateBaby ();
         baby.transform.position = GlobalAdoptionCenter;
         baby.SetAttachment(gameObject, ClingArea);
         babyFruits.Add(baby);
