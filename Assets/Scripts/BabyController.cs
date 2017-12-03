@@ -26,6 +26,14 @@ public class BabyController : MonoBehaviour {
         }
     }
 
+	public bool PickedUp 
+	{
+		get 
+		{
+			return attachmentTransform == null;
+		}
+	}
+
     SpriteRenderer rend;
 
     private void Awake()
