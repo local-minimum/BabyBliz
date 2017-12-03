@@ -54,8 +54,15 @@ public class MaternityWard : MonoBehaviour {
         mothersToSpawn--;
     }
 
+    IEnumerator<WaitForSeconds> _Birth()
+    {
+        yield return new WaitForSeconds(1.8f);
+        RandomCanon.BirthChild();
+    }
+
     void ReSpawnMother()
     {
+    
         Collider2D mother = gestatingMothers[0];
         Transform motherTransform = mother.transform;
         motherTransform.parent = RandomSpawnPoint;
@@ -70,7 +77,7 @@ public class MaternityWard : MonoBehaviour {
         carryingMothers.Remove(mother);
         mother.gameObject.SetActive(false);
         gestatingMothers.Add(mother);
-        RandomCanon.BirthChild();
+        StartCoroutine(_Birth());
     }
 
     Transform RandomSpawnPoint
