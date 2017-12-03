@@ -3,7 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BabyController : MonoBehaviour {
+
+	public enum State {
+		Default,
+		Playing,
+		DoNotMove,
+		Swimming,
+		Walking,
+		Killed
+	}
     
+	State state;
+
+	public State BabyState 
+	{
+		get
+		{
+			return state;
+		}
+		set 
+		{
+			state = value;
+		}
+	}
+
+
+
+
     Transform attachmentTransform;
     SpringJoint2D attachmentJoint;
 
@@ -24,14 +50,17 @@ public class BabyController : MonoBehaviour {
 
     Rigidbody2D rb;
 
-    public bool dontMove;
-    public bool floating;
+	public bool DontMove {
+		get {
+			return state == State.Killed || state == State.Playing || state == State.DoNotMove || state == State.Swimming;
+		}
+	}
 
     public bool Floating
     {
         get
         {
-            return floating;
+			return state == State.Swimming;
         }
     }
 
@@ -58,7 +87,7 @@ public class BabyController : MonoBehaviour {
 	public bool Killed 
 	{
 		get {
-			return killed;
+			return state == State.Killed;
 		}
 	}
 
@@ -73,7 +102,7 @@ public class BabyController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !floating && !killed)
+        if (collision.tag == "Player" && !Floating && !Killed)
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
 			AudioSource audioSource = GetComponent<AudioSource> ();
@@ -83,8 +112,7 @@ public class BabyController : MonoBehaviour {
         } else if (collision.tag == "Water")
         {
             rb.gravityScale = -.1f;           
-            floating = true;
-            dontMove = true;
+			state = State.Swimming;
         }
     }
 
@@ -92,7 +120,7 @@ public class BabyController : MonoBehaviour {
     {
         if (collision.tag == "Water")
         {
-            floating = false;
+			state = State.Default;
             rb.gravityScale = 1f;            
         }
     }
@@ -110,7 +138,7 @@ public class BabyController : MonoBehaviour {
                 Mathf.Lerp(attachmentArea.min.y, attachmentArea.max.y, Random.value)
             );
 
-        floating = false;
+		state = State.Default;
         rb.gravityScale = 1f;
         rb.velocity = Vector3.zero;
     }
@@ -119,9 +147,8 @@ public class BabyController : MonoBehaviour {
     {
         attachmentTransform = null;
         attachmentJoint.enabled = false;
-        floating = false;
         rb.gravityScale = 1f;
-        dontMove = true;
+		state = State.DoNotMove;
     }
 
     Vector2 aim;
@@ -158,19 +185,19 @@ public class BabyController : MonoBehaviour {
 		
     private void Update()
     {
-        if (killed)
+        if (Killed)
         {
             return;
         }
 
         if (attachmentTransform == null)
         {
-            if (floating)
+            if (Floating)
             {
                 rb.velocity *= 0.9f;
             }
 
-            if (dontMove != true)
+			if (!DontMove)
             {
 
                 if (nextAction < Time.timeSinceLevelLoad)
@@ -190,9 +217,9 @@ public class BabyController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!killed && !floating && collision.gameObject.tag == "Ground")
+		if (!Killed && !Floating && state != State.Playing && collision.gameObject.tag == "Ground")
         {
-            dontMove = false;
+			state = State.Default;
         }
     }
 
@@ -210,13 +237,11 @@ public class BabyController : MonoBehaviour {
             rend.color = Color.Lerp(Color.white, Color.black, 1f - value);
         }
     }
-
-    bool killed = false;
-
+		
     public void SetBurning(bool value)
     {
         if (attachmentTransform == null) {
-            killed = true;
+			state = State.Killed;
             health -= 0.1f;
         }
 
@@ -231,6 +256,6 @@ public class BabyController : MonoBehaviour {
 
         Debug.Log(name + " killed");
         attachmentJoint.enabled = false;
-        killed = true;
+		state = State.Killed;
     }
 }

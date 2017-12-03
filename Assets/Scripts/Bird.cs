@@ -41,7 +41,7 @@ public class Bird : MonoBehaviour {
 	{
 		BabyController baby = GameMaster.instance.CreateBaby ();
 		baby.transform.position = transform.position;
-		baby.dontMove = true;
+		baby.BabyState = BabyController.State.DoNotMove;
 		Vector2 ejectForce = new Vector2(Random.Range(0, 0f) * lateralisation, 1).normalized;
 		Rigidbody2D rb = baby.GetComponent<Rigidbody2D>();
 		rb.AddTorque(Random.Range(-90, 90));
