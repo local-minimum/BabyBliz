@@ -9,6 +9,10 @@ public class EnergyItemParent : MonoBehaviour {
     public Image progres;
     public EnergyItem item;
 
+    [SerializeField]
+    AudioClip sound;
+    AudioSource speaker;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && item != null)
@@ -26,15 +30,28 @@ public class EnergyItemParent : MonoBehaviour {
 
     }
 
+    private void Start()
+    {
+        speaker = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (canvas.activeSelf)
         {
             progres.fillAmount = item.consumptionProgress;
+            if (progres.fillAmount > 0 && !speaker.isPlaying && sound != null)
+            {
+                speaker.PlayOneShot(sound);
+            }
+
             if (item == null)
             {
                 canvas.SetActive(false);
+                progres.fillAmount = 0;
             }
         }
     }
+    
+    
 }

@@ -93,6 +93,7 @@ public class PlayerStatus : MonoBehaviour {
 
     public void Kill(KilledBy reason)
     {
+        _energy = 0;
         isAlive = false;
         LooseAllBabies();
     }

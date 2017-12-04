@@ -16,12 +16,22 @@ public class MaternityWard : MonoBehaviour {
     List<Collider2D> carryingMothers = new List<Collider2D>();
     List<Collider2D> gestatingMothers = new List<Collider2D>();
 
+    [SerializeField]
+    List<AudioClip> birthing = new List<AudioClip>();
+
+    AudioSource speaker;
+
     public Transform door;
 
     public List<Transform> motherSpawnPoints = new List<Transform>();
 
     [SerializeField]
     float motherSpawnRate = 0.1f;
+
+    private void Start()
+    {
+        speaker = GetComponent<AudioSource>();
+    }
 
     void Update () {
 
@@ -56,7 +66,9 @@ public class MaternityWard : MonoBehaviour {
 
     IEnumerator<WaitForSeconds> _Birth()
     {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(0.2f);
+        speaker.PlayOneShot(birthing[Random.Range(0, birthing.Count)]);
+        yield return new WaitForSeconds(1.4f);
         RandomCanon.BirthChild();
     }
 

@@ -27,10 +27,10 @@ public class UIEnergyBar : MonoBehaviour {
 
         if (progress < 0.1f)
         {
-            message.text = "No will to live";
+            message.text = "Giving up";
         } else if (progress < 0.3f)
         {
-            message.text = "Need for coffee";
+            message.text = "Need coffee";
         } else
         {
             message.text = "Will to live";
