@@ -37,7 +37,7 @@ public class BabyController : MonoBehaviour {
                 } else if (value == State.Killed)
                 {
                     anim.SetTrigger("Kill");
-                    transform.rotation = Quaternion.Euler(0, 0, 0f);
+                    transform.rotation = Quaternion.Euler(0, 0, -90f);
                 }
             }
 			state = value;
