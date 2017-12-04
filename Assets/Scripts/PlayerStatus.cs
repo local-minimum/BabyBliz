@@ -20,7 +20,7 @@ public class PlayerStatus : MonoBehaviour {
 
     [SerializeField]
     float maxEnergy = 80;
-
+ 
     public float Energy
     {
         get

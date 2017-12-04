@@ -25,9 +25,16 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-    public GameObject player;
+    public PlayerStatus player;
     public Transform levelStart;
 
+    public float willToLive
+    {
+        get
+        {
+            return Mathf.Clamp01(player.Energy);
+        }
+    }
 
     public float distanceWalked
     {
