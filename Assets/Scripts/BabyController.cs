@@ -36,7 +36,8 @@ public class BabyController : MonoBehaviour {
                     anim.SetTrigger("Crawl");
                 } else if (value == State.Killed)
                 {
-                    anim.SetTrigger("Kill");
+                    //anim.SetTrigger("Kill");
+                    anim.StopPlayback();
                     transform.rotation = Quaternion.Euler(0, 0, -90f);
                 }
             }

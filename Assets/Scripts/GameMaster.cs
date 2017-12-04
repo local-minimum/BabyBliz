@@ -32,7 +32,7 @@ public class GameMaster : MonoBehaviour {
     {
         get
         {
-            return Mathf.Clamp01(player.Energy);
+            return player.RawEnergy;
         }
     }
 
@@ -140,6 +140,11 @@ public class GameMaster : MonoBehaviour {
             {
                 SceneManager.LoadScene("theGame");
             }
+        }
+
+        if (player.isAlive && willToLive == 0)
+        {
+            player.SendMessage("Kill", KilledBy.Fatigue);
         }
     }
 

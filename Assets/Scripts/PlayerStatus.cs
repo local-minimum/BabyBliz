@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum KilledBy { Drowning, Fire };
+public enum KilledBy { Drowning, Fire, Fatigue };
 
 public class PlayerStatus : MonoBehaviour {
 
@@ -26,6 +26,14 @@ public class PlayerStatus : MonoBehaviour {
         get
         {
             return energyCurve.Evaluate(_energy);
+        }
+    }
+
+    public float RawEnergy
+    {
+        get
+        {
+            return Mathf.Clamp01(_energy / maxEnergy);
         }
     }
 
@@ -65,6 +73,10 @@ public class PlayerStatus : MonoBehaviour {
 
     public void PickupBaby(BabyController baby)
     {
+        if (!isAlive)
+        {
+            return;
+        }
         babies.Add(baby);
         baby.SetAttachment(gameObject, attachmentArea);
         baby.gameObject.layer = LayerMask.NameToLayer("Carried");
@@ -82,6 +94,7 @@ public class PlayerStatus : MonoBehaviour {
     public void Kill(KilledBy reason)
     {
         isAlive = false;
+        LooseAllBabies();
     }
 
     bool burning = false;
@@ -99,6 +112,16 @@ public class PlayerStatus : MonoBehaviour {
 
     [SerializeField]
     float pruneSpeed = 3f;
+
+    void LooseAllBabies()
+    {
+        while (babies.Count > 0)
+        {
+            BabyController b = babies[0];
+            babies.Remove(b);
+            b.FreeAttachment();
+        }
+    }
 
     void PruneBunt()
     {
