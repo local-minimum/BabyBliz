@@ -157,8 +157,8 @@ public class PlayerController : MonoBehaviour {
     float swimGravityScale = 0.1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
+    {        
+        if (collision.gameObject.tag == "Ground" && !collision.isTrigger)
         {
             grounders.Add(collision.transform);
             if (grounders.Count == 1)
