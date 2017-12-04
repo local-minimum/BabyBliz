@@ -97,10 +97,13 @@ public class PlayerStatus : MonoBehaviour {
     [SerializeField, Range(0, 1)]
     float fireStrengthDecay = 0.75f;
 
+    [SerializeField]
+    float pruneSpeed = 3f;
+
     void PruneBunt()
     {
         
-        if (Random.value < Time.deltaTime)
+        if (Random.value < Time.deltaTime * pruneSpeed)
         {
             int lastBaby = babies.Count - 1;            
             if (lastBaby >= 0)
