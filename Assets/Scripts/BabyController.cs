@@ -23,12 +23,24 @@ public class BabyController : MonoBehaviour {
 		}
 		set 
 		{
+            if (state != value)
+            {                                
+                if (state == State.Killed)
+                {
+                    anim.SetTrigger("Revive");
+                } else if (value == State.Playing)
+                {
+                    anim.SetTrigger("Sit");
+                } else if (value == State.Walking)
+                {
+                    anim.SetTrigger("Crawl");
+                }
+            }
 			state = value;
 		}
 	}
 
-
-
+    Animator anim;
 
     Transform attachmentTransform;
     SpringJoint2D attachmentJoint;
@@ -92,12 +104,15 @@ public class BabyController : MonoBehaviour {
 	}
 
     SpriteRenderer rend;
+    AudioSource audioSource;
 
     private void Awake()
     {
         attachmentJoint = GetComponent<SpringJoint2D>();
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -105,14 +120,11 @@ public class BabyController : MonoBehaviour {
         if (collision.tag == "Player" && !Floating && !Killed)
         {
             collision.SendMessage("PickupBaby", this, SendMessageOptions.DontRequireReceiver);
-			AudioSource audioSource = GetComponent<AudioSource> ();
-			audioSource.clip = jollers [UnityEngine.Random.Range (0, jollers.Count - 1)];
-			audioSource.pitch = UnityEngine.Random.value + 1f;
-			audioSource.Play ();
+            PlaySound(jollers);
         } else if (collision.tag == "Water")
         {
             rb.gravityScale = -.1f;           
-			state = State.Swimming;
+			BabyState = State.Swimming;
         }
     }
 
@@ -120,9 +132,16 @@ public class BabyController : MonoBehaviour {
     {
         if (collision.tag == "Water")
         {
-			state = State.Default;
+			BabyState = State.Default;
             rb.gravityScale = 1f;            
         }
+    }
+
+    void PlaySound(List<AudioClip> sounds)
+    {
+        audioSource.clip = sounds[Random.Range(0, sounds.Count - 1)];
+        audioSource.pitch = Random.value + 1f;
+        audioSource.Play();
     }
 
     public void SetAttachment(GameObject go, Rect attachmentArea)
@@ -138,9 +157,10 @@ public class BabyController : MonoBehaviour {
                 Mathf.Lerp(attachmentArea.min.y, attachmentArea.max.y, Random.value)
             );
 
-		state = State.Default;
+		BabyState = State.Default;
         rb.gravityScale = 1f;
         rb.velocity = Vector3.zero;
+        anim.SetTrigger("Cling");
     }
 
     public void FreeAttachment()
@@ -148,7 +168,8 @@ public class BabyController : MonoBehaviour {
         attachmentTransform = null;
         attachmentJoint.enabled = false;
         rb.gravityScale = 1f;
-		state = State.DoNotMove;
+		BabyState = State.DoNotMove;
+        anim.SetTrigger("Sit");
     }
 
     Vector2 aim;
@@ -206,8 +227,19 @@ public class BabyController : MonoBehaviour {
                 if (nextAction < Time.timeSinceLevelLoad)
                 {
                     nextAction = Random.Range(minNextAction, maxNextaction) + Time.timeSinceLevelLoad;
-                    xDirection = Random.Range(-1f, 1f);
-                    xDirection = Mathf.Min(Mathf.Abs(xDirection), 0.5f) * Mathf.Sign(xDirection);
+                    if (Random.value < 0.25f)
+                    {
+                        BabyState = State.Default;
+                        anim.SetTrigger("Sit");
+                        xDirection = 0;
+                        transform.rotation = Quaternion.identity;
+                        PlaySound(laughs);
+                    } else
+                    {
+                        BabyState = State.Walking;
+                        xDirection = Random.Range(-1f, 1f);
+                        xDirection = Mathf.Min(Mathf.Abs(xDirection), 0.5f) * Mathf.Sign(xDirection);
+                    }
                 }
                 else
                 {
@@ -223,7 +255,11 @@ public class BabyController : MonoBehaviour {
     {
 		if (!Killed && !Floating && state != State.Playing && collision.gameObject.tag == "Ground")
         {
-			state = State.Default;
+            if (rb.velocity.y < -2f)
+            {
+                PlaySound(laughs);
+            }
+			BabyState = State.Default;
         }
     }
 
@@ -245,7 +281,11 @@ public class BabyController : MonoBehaviour {
     public void SetBurning(bool value)
     {
         if (attachmentTransform == null) {
-			state = State.Killed;
+            if (state != State.Killed)
+            {
+                PlaySound(screams);
+            }
+			BabyState = State.Killed;
             health -= 0.1f;
         }
 
@@ -254,12 +294,9 @@ public class BabyController : MonoBehaviour {
     public void Kill()
     {
 		AudioSource audioSource = GetComponent<AudioSource> ();
-		audioSource.clip = screams [Random.Range (0, screams.Count - 1)];
-		audioSource.pitch = Random.value + 1f;
-		audioSource.Play ();
-
+        
         Debug.Log(name + " killed");
         attachmentJoint.enabled = false;
-		state = State.Killed;
+		BabyState = State.Killed;
     }
 }
