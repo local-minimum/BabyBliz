@@ -80,6 +80,7 @@ public class PlayerStatus : MonoBehaviour {
         babies.Add(baby);
         baby.SetAttachment(gameObject, attachmentArea);
         baby.gameObject.layer = LayerMask.NameToLayer("Carried");
+        baby.DoNotRemove = true;
     }
 
     public void PickupEnergy(EnergyItem item)
@@ -132,10 +133,12 @@ public class PlayerStatus : MonoBehaviour {
             int lastBaby = babies.Count - 1;            
             if (lastBaby >= 0)
             {
-                BabyController baby = babies[lastBaby];
+                BabyController baby = babies[lastBaby];                
                 if (baby.Health < .95f)
                 {
-                    baby.Kill();
+                    if (baby != null) {
+                        baby.Kill();
+                    }
                     babies.Remove(baby);
                 }
             }
@@ -163,6 +166,7 @@ public class PlayerStatus : MonoBehaviour {
                 {
                     babies.Remove(sacrifice);
                     sacrifice.Kill();
+                    
                 }
                 fire *= fireStrengthDecay;
             }

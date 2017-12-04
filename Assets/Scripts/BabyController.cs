@@ -175,6 +175,7 @@ public class BabyController : MonoBehaviour {
         rb.gravityScale = 1f;
 		BabyState = State.DoNotMove;
         anim.SetTrigger("Sit");
+        doNotRemove = false;
     }
 
     Vector2 aim;
@@ -303,5 +304,6 @@ public class BabyController : MonoBehaviour {
         Debug.Log(name + " killed");
         attachmentJoint.enabled = false;
 		BabyState = State.Killed;
+        doNotRemove = false;
     }
 }

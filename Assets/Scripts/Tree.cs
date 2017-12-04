@@ -48,7 +48,10 @@ public class Tree : MonoBehaviour {
         for (int i=babyFruits.Count - 1; i>=0; i--)
         {
             BabyController baby = babyFruits[i];
-            if (Mathf.Abs(player.position.x - baby.transform.position.x) < dropRange)
+            if (baby == null)
+            {
+                babyFruits.RemoveAt(i);
+            } else if (Mathf.Abs(player.position.x - baby.transform.position.x) < dropRange)
             {
                 baby.FreeAttachment();
                 babyFruits.Remove(baby);

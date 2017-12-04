@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour {
-
+    
     static GameMaster _instance;
 
-	int maxNumberOfBabies = 200;
+	int maxNumberOfBabies = 300;
 
 	[SerializeField]
 	Transform allTheBabies;
@@ -27,6 +27,22 @@ public class GameMaster : MonoBehaviour {
 
     public PlayerStatus player;
     public Transform levelStart;
+    public CameraController myCamera;
+    public EndButton endButton;
+
+
+    public static float EndButtonPressing
+    {
+        get
+        {
+            return instance.endButton.EndButtonProgress;
+        }
+    }
+
+    public static float CameraDistance(Transform me)
+    {
+        return Mathf.Abs(instance.myCamera.transform.position.x - me.position.x);
+    }
 
     public float willToLive
     {
