@@ -81,7 +81,6 @@ public class PlayerStatus : MonoBehaviour {
 
     public void Kill(KilledBy reason)
     {
-        Debug.Log(reason);
         isAlive = false;
     }
 

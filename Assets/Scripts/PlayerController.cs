@@ -190,6 +190,12 @@ public class PlayerController : MonoBehaviour {
 
     public void Kill(KilledBy reason)
     {
+        if (isAlive)
+        {
+            anim.SetTrigger("Kill");
+            GetComponent<CapsuleCollider2D>().size = new Vector2(0.1f, 0.1f);
+        }
         isAlive = false;
+        
     }
 }
