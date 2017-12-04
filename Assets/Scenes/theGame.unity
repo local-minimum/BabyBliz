@@ -18682,7 +18682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: {fileID: 265983385}
   right: {fileID: 1362820700}
-  uiRoot: {fileID: 0}
+  message: {fileID: 1617932185}
 --- !u!1 &1625781836
 GameObject:
   m_ObjectHideFlags: 0
