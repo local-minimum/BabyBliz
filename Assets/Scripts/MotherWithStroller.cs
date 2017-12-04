@@ -10,6 +10,7 @@ public class MotherWithStroller : MonoBehaviour {
 	GameObject stroller;
 
 	SpriteRenderer strollerSpriteRenderer;
+    SpriteRenderer pregnipushSpriteRenderer;
 
 	float direction = 1;
 
@@ -30,7 +31,7 @@ public class MotherWithStroller : MonoBehaviour {
 
         strollerLocalOffset = stroller.transform.localPosition;
 		strollerSpriteRenderer = stroller.GetComponent<SpriteRenderer> ();
-  
+        pregnipushSpriteRenderer = GetComponent<SpriteRenderer>();
         baby = GameMaster.instance.CreateBaby();
         baby.transform.position = transform.position;
         baby.SetAttachment(stroller, attachment);
@@ -45,6 +46,7 @@ public class MotherWithStroller : MonoBehaviour {
 			toMove = -toMove;
             stroller.transform.localPosition = new Vector3(strollerLocalOffset.x * direction, strollerLocalOffset.y, strollerLocalOffset.z);
 			strollerSpriteRenderer.flipX = !strollerSpriteRenderer.flipX;
+            pregnipushSpriteRenderer.flipX = !pregnipushSpriteRenderer.flipX;
 		}
 		currentDistance += toMove;
 		transform.Translate(toMove, 0,  0);

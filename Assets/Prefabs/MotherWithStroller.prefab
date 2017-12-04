@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 212838435494078334}
   - component: {fileID: 61806953946090852}
   - component: {fileID: 114051012966555582}
+  - component: {fileID: 95669817620065412}
   m_Layer: 0
   m_Name: MotherWithStroller
   m_TagString: Untagged
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1990491145352942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.44, y: -0.35, z: 1}
+  m_LocalPosition: {x: 1.533, y: -0.425, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4823841043721588}
@@ -83,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818595704391570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 78.11, y: 0.8234868, z: 10.007294}
+  m_LocalPosition: {x: 93.9, y: 0.8234868, z: 10.007294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4040163823845382}
@@ -164,7 +165,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1428572, y: 2.8228571}
+    oldSize: {x: 1.28, y: 3.2}
     newSize: {x: 1.3333334, y: 3.2933333}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -173,6 +174,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1428572, y: 2.8228571}
   m_EdgeRadius: 0
+--- !u!95 &95669817620065412
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1818595704391570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88a77ff228cdbac49858e6d743e3f5ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114051012966555582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,8 +203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stroller: {fileID: 1990491145352942}
-  distanceToWalk: 10
-  walkSpeed: 1
+  distanceToWalk: -7
+  walkSpeed: 1.1
   attachment:
     serializedVersion: 2
     x: -0.43
@@ -227,7 +245,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: 8c4f2289f15bbfc409c14ff85a80b574, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fde5753d3669fb341a65163c0582566b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

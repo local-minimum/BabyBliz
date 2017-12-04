@@ -9,8 +9,16 @@ public class Mother : MonoBehaviour {
     [SerializeField]
     float walkSpeed = 1f;
 
-	void Update () {
+    SpriteRenderer sRend;
+
+    private void Start()
+    {
+        sRend = GetComponent<SpriteRenderer>();
+    }
+
+    void Update () {
         Vector3 direction = (door.transform.position - transform.position).normalized;
+        sRend.flipX = direction.x < 0;
         transform.position +=  direction * walkSpeed * Time.deltaTime;
 	}
 }
